@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import "@fontsource/playfair-display-sc";
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
