@@ -2,9 +2,11 @@
 
 > The following example is a NextJs - React implementation of this effect using pixi.js from https://redstapler.co/ultra-realistic-water-ripple-effect-javascript-tutorial/ (vanilla js)
 
-![Image of Yaktocat](https://github.com/danteese/waves-pixijs/public/waves.gif)
+## Effect 
 
-Features
+![Image of Yaktocat](https://github.com/danteese/waves-pixijs/blob/main/public/waves.gif?raw=true)
+
+## Features
 
 - [x] Using NextJs dynamic load
 - [x] Using useApp as consumer (you can use things like app.resizeTo) 
