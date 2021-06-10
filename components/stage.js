@@ -13,7 +13,6 @@ function StageNoSSR() {
     const [y, setY] = useState(0);
     const displacementSpriteRef = useRef()
     const [renderFilter, setRenderFilter] = useState(false);
-    const {height, width} = useWindowDimensions();
     const app = useApp();
 
     useEffect(() => {
@@ -25,7 +24,6 @@ function StageNoSSR() {
             utils.sayHello(type);
             displacementSpriteRef.current.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
             setRenderFilter(true);
-            app.resizeTo = window;
             animate();
         }
     }, [])
@@ -43,45 +41,18 @@ function StageNoSSR() {
                 <Filters displacement={{
                     construct: [displacementSpriteRef.current],
                 }}>
-                    <Sprite width={width} height={height} image="water.jpeg" scale={1.12}/>
+                    <Sprite width={1025} height={574} image="water.jpeg" scale={1.12}/>
                 </Filters>
             )}
         </Container>
     )
 }
 
-function getWindowDimensions() {
-    const {innerWidth: width, innerHeight: height} = window;
-    return {
-        width,
-        height
-    };
-}
-
-function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowDimensions(getWindowDimensions());
-        }
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    return windowDimensions;
-}
-
 const wrapped = () => {
     return (
-        <div className="container-fluid overflow-hidden">
-            <div style={{position: "relative", overflow: "hidden", overflowX: "hidden"}}>
-                <Stage>
-                    <StageNoSSR/>
-                </Stage>
-            </div>
-        </div>
+        <Stage width={1025} height={574}>
+            <StageNoSSR/>
+        </Stage>
     )
 };
 
